@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Bad+Script&family=Poppins:wght@400;500;600&display=swap');
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #1c1310;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+ 
+.frame {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background: #f6cfd6;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+ 
+/* HEADER */
+.header {
+  background: #241612;
+  padding: 34px 20px 30px;
+  text-align: center;
+}
+ 
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  color: transparent;
+  -webkit-text-stroke: 1.3px #f3e3c9;
+  text-transform: uppercase;
+}
+ 
+/* SUBTITLE */
+.subtitle-wrap {
+  padding: 22px 20px 10px;
+  display: flex;
+  justify-content: center;
+}
+ 
+.subtitle {
+  background: #d9a9a5;
+  color: #3c2415;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-align: center;
+}
+ 
+/* GRID */
+.grid {
+  padding: 22px 18px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 18px;
+}
+ 
+.card {
+  background: #fdf6f2;
+  border-radius: 14px;
+  padding: 10px 10px 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.15s ease;
+}
+ 
+.card:active {
+  transform: scale(0.97);
+}
+ 
+.thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.25) 100%);
+}
+ 
+.thumb-platos {
+  background-image:
+    radial-gradient(circle at 30% 25%, #f4c98a 0%, transparent 40%),
+    linear-gradient(135deg, #8a5a2e 0%, #5c3a1e 55%, #3d2712 100%);
+}
+ 
+.thumb-cervezas {
+  background-image:
+    radial-gradient(circle at 50% 15%, #fff8e0 0%, transparent 35%),
+    linear-gradient(180deg, #f2c14e 0%, #d99a2b 60%, #8a5a1e 100%);
+}
+ 
+.thumb-postres {
+  background-image:
+    radial-gradient(circle at 40% 30%, #6b3a54 0%, transparent 45%),
+    linear-gradient(135deg, #e8d9c0 0%, #d8b98f 60%, #8a5a3a 100%);
+}
+ 
+.thumb-bebidas {
+  background-image:
+    radial-gradient(circle at 60% 20%, #c62a2a 0%, transparent 40%),
+    linear-gradient(160deg, #1a1a1a 0%, #3a1010 60%, #6e1414 100%);
+}
+ 
+.card-label {
+  font-family: 'Bad Script', cursive;
+  font-size: 22px;
+  color: #3c2415;
+}
+ 
+/* FOOTER / CART */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 26px 0 34px;
+}
+ 
+.cart-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fdf6f2;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+ 
