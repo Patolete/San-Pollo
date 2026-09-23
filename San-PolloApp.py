@@ -59,6 +59,38 @@ def crear_pedido():
 
     return {"mensaje": "pedido creado", "pedido_id": pedido_id, "total": total}
 
+@app.route('/jobView')
+def ver_pedido():
+    conexion = get_db()
+    pedidos = conexion.execute(
+        'SELECT * FROM pedidos where estado = ?', ('pendiente',)
+    ).fetchall()
+    conexion.close()
+    return [dict(p) for p in pedidos]
+
+@app.route('/ticket/<int:pedido_id>')
+def ver_ticket(pedido_id):
+    conexion = get_db()
+    pedido = conexion.execute(
+        'SELECT * FROM pedidos WHERE id = ?', (pedido_id,)
+    ).fetchone()
+
+
+    ticket = conexion.execute(
+        '''SELECT productos.nombre, productos.precio, pedido_items.cantidad
+        FROM pedido_items
+        JOIN productos ON pedido_items.producto_id = productos.id
+        WHERE pedido_items.pedido_id = ?''', (pedido_id,)
+    ).fetchall()
+
+    conexion.close()
+
+    return {
+        "pedido": dict(pedido),
+        "items": [dict(t) for t in ticket]
+    }
+
+
 if __name__ == '__main__':
     init_db()
     app.run(debug=True)
