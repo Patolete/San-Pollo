@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="header">
+  <h1 class="logo">Platos</h1>
+</header>
+
+<main class="lista-productos">
+  {% for p in platos %}
+    <div class="producto-card">
+      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" alt="{{ p.nombre }}">
+      <span class="producto-nombre">{{ p.nombre }}</span>
+      <span class="producto-precio">${{ p.precio }}</span>
+    </div>
+  {% endfor %}
+</main>
+{% endblock %}

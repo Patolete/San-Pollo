@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, request
+from flask import Flask, request, render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -11,14 +11,42 @@ def get_db():
 
 def init_db():
     conexion = get_db()
-    with open('schema.sql') as f:
+    with open('schema.sql', encoding='utf-8') as f:
         conexion.executescript(f.read())
     conexion.commit()
     conexion.close()
 
 @app.route('/')
 def home():
-    return "Hola, funciona!"
+    return render_template('index.html')
+
+@app.route('/platos')
+def platos():
+    conexion = get_db()
+    platos = conexion.execute('SELECT * FROM productos where categoria = ?', ('comida',)).fetchall()
+    conexion.close()
+    return render_template('platos.html', platos=[dict(p) for p in platos])
+
+@app.route('/cervezas')
+def cervezas():
+    conexion = get_db()
+    cervezas = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('cerveza',)).fetchall()
+    conexion.close()
+    return render_template('cervezas.html', cervezas=[dict(c) for c in cervezas])
+
+@app.route('/postres')
+def postres():
+    conexion = get_db()
+    postres = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('postre',)).fetchall()
+    conexion.close()
+    return render_template('postres.html', postres=[dict(p) for p in postres])
+
+@app.route('/bebidas')
+def bebidas():
+    conexion = get_db()
+    bebidas = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('bebida',)).fetchall()
+    conexion.close()
+    return render_template('bebidas.html', bebidas=[dict(b) for b in bebidas])
 
 @app.route('/productos')
 def listar_productos():
