@@ -7,7 +7,7 @@
 
 <main class="lista-productos">
   {% for b in bebidas %}
-    <div class="producto-card">
+    <div class="card">
       <img src="{{ url_for('static', filename=b.imagen or 'placeholder.png') }}" alt="{{ b.nombre }}">
       <span class="producto-nombre">{{ b.nombre }}</span>
       <span class="producto-precio">${{ b.precio }}</span>

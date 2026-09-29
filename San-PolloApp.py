@@ -20,6 +20,7 @@ def init_db():
 def home():
     return render_template('index.html')
 
+#Rutas de paginas
 @app.route('/platos')
 def platos():
     conexion = get_db()
@@ -47,6 +48,15 @@ def bebidas():
     bebidas = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('bebida',)).fetchall()
     conexion.close()
     return render_template('bebidas.html', bebidas=[dict(b) for b in bebidas])
+
+@app.route('/carrito')
+def carrito():
+    conexion = get_db()
+    carrito = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('bebida',)).fetchall()
+    conexion.close()
+    return render_template('carrito.html', carrito=[dict(b) for b in carrito])
+
+#----------------------
 
 @app.route('/productos')
 def listar_productos():
