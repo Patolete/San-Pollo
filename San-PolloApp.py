@@ -1,8 +1,10 @@
+from calendar import c
 from datetime import datetime
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'caroAprobame'
 
 def get_db():
     conexion = sqlite3.connect('sanpollo.db')
@@ -15,6 +17,15 @@ def init_db():
         conexion.executescript(f.read())
     conexion.commit()
     conexion.close()
+
+@app.route('/agregar/<int:producto_id>', methods=['POST'])
+def carro(producto_id):
+    if 'carrito' not in session:
+        session['carrito'] = []
+    cantidad =int(request.form['cantidad'])
+    session['carrito'].append({'producto_id': producto_id, 'cantidad': cantidad})
+    session.modified = True
+    return redirect(request.referrer or url_for('home'))
 
 @app.route('/')
 def home():
@@ -51,10 +62,16 @@ def bebidas():
 
 @app.route('/carrito')
 def carrito():
+    carrito = session.get('carrito', [])
     conexion = get_db()
-    carrito = conexion.execute('SELECT * FROM productos WHERE categoria = ?', ('bebida',)).fetchall()
+    produ = []
+    for i in carrito:
+        producto = conexion.execute('SELECT nombre, precio FROM productos WHERE id = ?', (i['producto_id'],)).fetchone()
+        producto = dict(producto)
+        producto['cantidad'] = i['cantidad']
+        produ.append(producto)
     conexion.close()
-    return render_template('carrito.html', carrito=[dict(b) for b in carrito])
+    return render_template('carrito.html', productos=produ)
 
 #----------------------
 
@@ -67,8 +84,7 @@ def listar_productos():
 
 @app.route('/pedido', methods=['POST'])
 def crear_pedido():
-    datos = request.get_json()
-    items = datos['items']
+    items = session.get('carrito', [])
 
     conexion = get_db()
     total = 0
@@ -95,7 +111,9 @@ def crear_pedido():
     conexion.commit()
     conexion.close()
 
-    return {"mensaje": "pedido creado", "pedido_id": pedido_id, "total": total}
+    session['carrito'] = []
+
+    return render_template('confirmacion.html', total=total, pedido_id=pedido_id)
 
 @app.route('/jobView')
 def ver_pedido():

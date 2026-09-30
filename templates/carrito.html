@@ -6,8 +6,15 @@
 </header>
 
 <main class="lista-productos">
-    <div class="card"> 
-      <h2>Pedido Nº </h2>
-    </div>
+    {% for p in productos %}
+        <div class="card">
+            <span class="producto-nombre">{{ p.nombre }}</span>
+            <span class="producto-precio">${{ p.precio }}</span>
+            <span class="producto-cantidad">{{ p.cantidad }}</span>
+        </div>
+    {% endfor %}
+    <form action="/pedido" method="POST">
+      <button type="submit" class="pagar-btn">Pagar</button>
+    </form>
 </main>
 {% endblock %}

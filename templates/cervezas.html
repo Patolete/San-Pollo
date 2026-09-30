@@ -11,6 +11,11 @@
       <img src="{{ url_for('static', filename=c.imagen or 'placeholder.png') }}" alt="{{ c.nombre }}">
       <span class="producto-nombre">{{ c.nombre }}</span>
       <span class="producto-precio">${{ c.precio }}</span>
+
+      <form action="/agregar/{{ c.id }}" method="POST">
+        <input type="number" name="cantidad" value="1" min="1">
+        <button type="submit">Agregar</button>
+      </form>
     </div>
   {% endfor %}
 </main>
