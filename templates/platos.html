@@ -5,16 +5,16 @@
   <h1 class="logo">Platos</h1>
 </header>
 
-<main class="lista-productos">
+<main class="grid">
   {% for p in platos %}
     <div class="card">
-      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" alt="{{ p.nombre }}">
+      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" alt="">
       <span class="producto-nombre">{{ p.nombre }}</span>
       <span class="producto-precio">${{ p.precio }}</span>
 
       <form action="/agregar/{{ p.id }}" method="POST">
-        <input type="number" name="cantidad" value="1" min="1">
-        <button type="submit">Agregar</button>
+        <input type="number" name="cantidad" value="1" min="1" class="numerin">
+        <button type="submit" class="agr-btn">Agregar</button>
       </form>
     </div>
   {% endfor %}

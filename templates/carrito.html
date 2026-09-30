@@ -13,8 +13,11 @@
             <span class="producto-cantidad">{{ p.cantidad }}</span>
         </div>
     {% endfor %}
+    <div class="card">
+      <span class="producto-nombre">Precio Total: {{ total }}</span>
+    </div>
     <form action="/pedido" method="POST">
-      <button type="submit" class="pagar-btn">Pagar</button>
+      <button type="submit" class="agr-btn">Pagar</button>
     </form>
 </main>
 {% endblock %}

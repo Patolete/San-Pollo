@@ -63,11 +63,11 @@ body {
 
 /* GRID */
 .grid {
-  padding: 22px 18px 30px;
+  padding: 12px 5px 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
-  gap: 18px;
+  gap: 10px;
 }
 
 .card {
@@ -81,6 +81,26 @@ body {
   align-items: center;
   transition: transform 0.15s ease;
   margin-top: 20px;
+}
+
+.card1 {
+  background: #fdf6f2;
+  border-radius: 14px;
+  padding: 10px 30px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  margin-top: 70%;
+}
+
+.carri{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card:active {
@@ -148,12 +168,29 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.92);
   margin: 0%;
   height: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13%;
 }
 
 .cart-btn {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  background: #fdf6f2;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.agr-btn {
+  width: 50px;
+  height: 25px;
+  border-radius: 20%;
   background: #fdf6f2;
   border: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.55);
@@ -174,4 +211,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.numerin{
+  width: 20%;
 }

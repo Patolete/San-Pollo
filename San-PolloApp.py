@@ -65,13 +65,15 @@ def carrito():
     carrito = session.get('carrito', [])
     conexion = get_db()
     produ = []
+    total = 0
     for i in carrito:
         producto = conexion.execute('SELECT nombre, precio FROM productos WHERE id = ?', (i['producto_id'],)).fetchone()
         producto = dict(producto)
         producto['cantidad'] = i['cantidad']
         produ.append(producto)
+        total += producto['precio'] * producto['cantidad']
     conexion.close()
-    return render_template('carrito.html', productos=produ)
+    return render_template('carrito.html', productos=produ, total=total)
 
 #----------------------
 
