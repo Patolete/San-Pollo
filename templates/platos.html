@@ -8,7 +8,7 @@
 <main class="grid">
   {% for p in platos %}
     <div class="card">
-      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" alt="">
+      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" width ="80px" height="80px" alt="">
       <span class="producto-nombre">{{ p.nombre }}</span>
       <span class="producto-precio">${{ p.precio }}</span>
 

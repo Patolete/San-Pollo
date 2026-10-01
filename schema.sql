@@ -35,11 +35,11 @@ INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Spr
 INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Agua sin gas', 'bebida', 350.0, NULL);
 
 -- Comidas
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pizza mozzarella', 'comida', 2200.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pizza especial', 'comida', 2600.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Hamburguesa completa', 'comida', 1900.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Papas clásicas', 'comida', 900.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Papas con cheddar', 'comida', 1100.0, NULL);
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pizza mozzarella', 'comida', 2200.0, 'Imagenes/pizzaM.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pizza especial', 'comida', 2600.0, 'Imagenes/pizzaE.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Hamburguesa completa', 'comida', 1900.0, 'Imagenes/hamburguesaa.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Papas clásicas', 'comida', 900.0, 'Imagenes/papas.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Papas con cheddar', 'comida', 1100.0, 'Imagenes/PapasC.jpg');
 
 -- Postres
 INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Tiramisú', 'postre', 950.0, NULL);
