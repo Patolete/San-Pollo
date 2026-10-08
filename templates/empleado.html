@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Pollo Resucitado</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% for i in items %}
+      <div class="card">
+        <span class="numero">Pedido N°: {{ i.id }}</span>
+
+        {% for prod in i['items'] %}
+              <span>{{ prod.cantidad }}x {{ prod.nombre }}</span>
+
+        {% endfor %}
+      </div>
+    {% endfor %}
+</body>
+<footer>
+</footer>
+</html>

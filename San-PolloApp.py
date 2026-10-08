@@ -117,20 +117,33 @@ def crear_pedido():
 
     return render_template('confirmacion.html', total=total, pedido_id=pedido_id)
 
-@app.route('/jobView')
+@app.route('/empleado')
 def ver_pedido():
     conexion = get_db()
-    pedidos = conexion.execute(
-        'SELECT * FROM pedidos where estado = ?', ('pendiente',)
+    pendientes = conexion.execute(
+        'SELECT * FROM pedidos WHERE estado = ?', ('pendiente',)
     ).fetchall()
+    pendientes = [dict(p) for p in pendientes]
+
+    for p in pendientes:
+        items = conexion.execute(
+            '''SELECT productos.nombre, pedido_items.cantidad
+            FROM pedido_items
+            JOIN productos ON pedido_items.producto_id = productos.id
+            WHERE pedido_items.pedido_id = ?''',(p['id'],)
+        ).fetchall()
+        p['items'] = [dict(i) for i in items]
+
+
     conexion.close()
-    return [dict(p) for p in pedidos]
+    return render_template('empleado.html', items = pendientes,)
 
 @app.route('/ticket/<int:pedido_id>')
 def ver_ticket(pedido_id):
     conexion = get_db()
     pedido = conexion.execute(
         'SELECT * FROM pedidos WHERE id = ?', (pedido_id,)
+
     ).fetchone()
 
 

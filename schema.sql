@@ -42,6 +42,6 @@ INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pap
 INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Papas con cheddar', 'comida', 1100.0, 'Imagenes/PapasC.jpg');
 
 -- Postres
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Tiramisú', 'postre', 950.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Cheesecake de frutos rojos', 'postre', 950.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Copa helada', 'postre', 850.0, NULL);
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Tiramisú', 'postre', 950.0, 'Imagenes/tiramisu.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Cheesecake de frutos rojos', 'postre', 950.0, 'Imagenes/cheesecake.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Copa helada', 'postre', 850.0, 'Imagenes/copahelado.jpg');
