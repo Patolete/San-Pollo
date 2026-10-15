@@ -32,6 +32,7 @@ def home():
     return render_template('index.html')
 
 #Rutas de paginas
+#-----------------------------------------------------------------------------------------------------------------
 @app.route('/platos')
 def platos():
     conexion = get_db()
@@ -75,7 +76,7 @@ def carrito():
     conexion.close()
     return render_template('carrito.html', productos=produ, total=total)
 
-#----------------------
+#-------------------------------------------------------------------------------
 
 @app.route('/productos')
 def listar_productos():
@@ -160,6 +161,14 @@ def ver_ticket(pedido_id):
         "pedido": dict(pedido),
         "items": [dict(t) for t in ticket]
     }
+
+@app.route('/estado/<int:pedido_id>', method = ['POST'])
+def enPreparación(pedido_id):
+    conexion = get_db()
+    estado = request.form['estado']
+    enprep = conexion.execute('UPDATE pedidos SET estado = ? WHERE id = ?'), (pedido_id, estado,)
+    conexion.close()
+    return redirect(request.referrer or url_for('empleado'))
 
 
 if __name__ == '__main__':
