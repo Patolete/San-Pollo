@@ -23,16 +23,16 @@ CREATE TABLE IF NOT EXISTS pedido_items (
 );
 
 -- Cervezas
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Rubia clásica', 'cerveza', 1200.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('IPA', 'cerveza', 1400.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Roja', 'cerveza', 1300.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Negra', 'cerveza', 1300.0, NULL);
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Rubia clásica', 'cerveza', 1200.0, 'Imagenes/Rubia.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('IPA', 'cerveza', 1400.0, 'Imagenes/ipa.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Roja', 'cerveza', 1300.0, 'Imagenes/roja.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Negra', 'cerveza', 1300.0, 'Imagenes/negra.jpg');
 
 -- Bebidas sin alcohol
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Limonada', 'bebida', 600.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Coca Cola', 'bebida', 500.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Sprite', 'bebida', 500.0, NULL);
-INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Agua sin gas', 'bebida', 350.0, NULL);
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Limonada', 'bebida', 600.0, 'Imagenes/limonada.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Coca Cola', 'bebida', 500.0, 'Imagenes/coca.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Sprite', 'bebida', 500.0, 'Imagenes/sprite.jpg');
+INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Agua sin gas', 'bebida', 350.0, 'Imagenes/agua.jpg');
 
 -- Comidas
 INSERT OR IGNORE INTO productos (nombre, categoria, precio, imagen) VALUES ('Pizza mozzarella', 'comida', 2200.0, 'Imagenes/pizzaM.jpg');
