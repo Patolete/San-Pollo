@@ -216,3 +216,8 @@ body {
 .numerin{
   width: 20%;
 }
+
+.empli{
+  display: flex;
+  flex-direction: column;
+}
