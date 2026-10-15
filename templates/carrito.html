@@ -11,6 +11,9 @@
             <span class="producto-nombre">{{ p.nombre }}</span>
             <span class="producto-precio">${{ p.precio }}</span>
             <span class="producto-cantidad">{{ p.cantidad }}</span>
+          <form action="/eliminar/{{ p.id }}" method="POST" class="elimi">
+            <button type="submit" class="agr-btn">Agregar</button>
+          </form>
         </div>
     {% endfor %}
     <div class="card">

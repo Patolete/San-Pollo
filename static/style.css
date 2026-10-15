@@ -239,3 +239,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.elimi{
+  display: flex;
+  justify-content: right;
+}
