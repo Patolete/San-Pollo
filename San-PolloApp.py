@@ -162,11 +162,12 @@ def ver_ticket(pedido_id):
         "items": [dict(t) for t in ticket]
     }
 
-@app.route('/estado/<int:pedido_id>', method = ['POST'])
+@app.route('/estado/<int:pedido_id>', methods = ['POST'])
 def enPreparación(pedido_id):
     conexion = get_db()
     estado = request.form['estado']
-    enprep = conexion.execute('UPDATE pedidos SET estado = ? WHERE id = ?'), (pedido_id, estado,)
+    enprep = conexion.execute('UPDATE pedidos SET estado = ? WHERE id = ?', (estado, pedido_id,))
+    conexion.commit()
     conexion.close()
     return redirect(request.referrer or url_for('empleado'))
 
