@@ -8,11 +8,11 @@
 <main class="grid">
   {% for p in platos %}
     <div class="card">
-      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" width ="80px" height="80px" alt="">
+      <img src="{{ url_for('static', filename=p.imagen or 'placeholder.png') }}" width ="95px" height="80px" alt="" class="imagin">
       <span class="producto-nombre">{{ p.nombre }}</span>
       <span class="producto-precio">${{ p.precio }}</span>
 
-      <form action="/agregar/{{ p.id }}" method="POST">
+      <form action="/agregar/{{ p.id }}" method="POST" class="agri">
         <input type="number" name="cantidad" value="1" min="1" class="numerin">
         <button type="submit" class="agr-btn">Agregar</button>
       </form>
