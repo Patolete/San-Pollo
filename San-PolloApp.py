@@ -61,6 +61,14 @@ def bebidas():
     conexion.close()
     return render_template('bebidas.html', bebidas=[dict(b) for b in bebidas])
 
+@app.route('/eliminar/<int:posicion>', methods = ['POST'])
+def elim(posicion):
+    carrito = session.get('carrito', [])
+    if posicion < len(carrito):
+        carrito.pop(posicion)
+    session.modified = True
+    return redirect ('/carrito')
+
 @app.route('/carrito')
 def carrito():
     carrito = session.get('carrito', [])
