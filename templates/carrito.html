@@ -12,7 +12,7 @@
             <span class="producto-precio">${{ p.precio }}</span>
             <span class="producto-cantidad">{{ p.cantidad }}</span>
           <form action="/eliminar/{{ loop.index0 }}" method="POST" class="elimi">
-            <button type="submit" class="agr-btn">Agregar</button>
+            <button type="submit" class="elim-btn">Eliminar</button>
           </form>
         </div>
     {% endfor %}

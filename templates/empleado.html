@@ -9,17 +9,18 @@
 <body>
   <div class="empli">
     {% for i in items %}
-      <div class="card">
+      <div class="card2">
         <span class="numero">Pedido N°: {{ i.id }}</span>
-        <div class = "estados">
-            {% for prod in i['items'] %}
+        {% for prod in i['items'] %}
                   <span>{{ prod.cantidad }}x {{ prod.nombre }}</span>
-            {% endfor %}
-            <form action="/estado/{{ i.id }}" method="POST">
-              <input type="hidden" name="estado" value="en_preparacion">
-              <button type="submit">En preparación</button>
-            </form>
+        {% endfor %}
+        <div class = "estados">
+          <form action="/estado/{{ i.id }}" method="POST">
+            <input type="hidden" name="estado" value="en_preparacion">
+            <button type="submit">En preparación</button>
+          </form>
         </div>
+      </div>
     {% endfor %}
   </div>
   </body>
