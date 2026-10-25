@@ -130,7 +130,8 @@ def crear_pedido():
 def ver_pedido():
     conexion = get_db()
     pendientes = conexion.execute(
-        'SELECT * FROM pedidos WHERE estado = ?', ('pendiente',)
+        '''SELECT * FROM pedidos WHERE estado = ? OR estado = ? OR estado = ?
+        ''', ('pendiente','en_preparacion','listo',)
     ).fetchall()
     pendientes = [dict(p) for p in pendientes]
 

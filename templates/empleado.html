@@ -9,18 +9,36 @@
 <body>
   <div class="empli">
     {% for i in items %}
-      <div class="card2">
+    <div class="card2">
         <span class="numero">Pedido N°: {{ i.id }}</span>
         {% for prod in i['items'] %}
                   <span>{{ prod.cantidad }}x {{ prod.nombre }}</span>
         {% endfor %}
-        <div class = "estados">
-          <form action="/estado/{{ i.id }}" method="POST">
-            <input type="hidden" name="estado" value="en_preparacion">
-            <button type="submit">En preparación</button>
-          </form>
-        </div>
-      </div>
+        {%if i.estado == 'pendiente'%}
+            <div class = "estados">
+                <form action="/estado/{{ i.id }}" method="POST">
+                    <input type="hidden" name="estado" value="en_preparacion">
+                    <button type="submit">En preparación</button>
+                </form>
+            </div>
+        {%endif%}
+        {%if i.estado == 'en_preparacion'%}
+            <div class = "estados">
+                <form action="/estado/{{ i.id }}" method="POST">
+                    <input type="hidden" name="estado" value="listo">
+                    <button type="submit">Listo</button>
+                </form>
+            </div>
+        {%endif%}
+        {%if i.estado == 'listo'%}
+            <div class = "estados">
+                <form action="/estado/{{ i.id }}" method="POST">
+                    <input type="hidden" name="estado" value="entregado">
+                    <button type="submit">Entregado</button>
+                </form>
+            </div>
+    </div>
+        {%endif%}
     {% endfor %}
   </div>
   </body>
