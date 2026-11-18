@@ -11,7 +11,7 @@
             <span class="producto-nombre">{{ p.nombre }}</span>
             <span class="producto-precio">${{ p.precio }}</span>
             <span class="producto-cantidad">{{ p.cantidad }}</span>
-          <form action="/eliminar/{{ loop.index0 }}" method="POST" class="elimi">
+            <form action="/eliminar/{{ loop.index0 }}" method="POST" class="elimi">
             <button type="submit" class="elim-btn">Eliminar</button>
           </form>
         </div>
@@ -19,8 +19,8 @@
     <div class="card">
       <span class="producto-nombre">Precio Total: {{ total }}</span>
     </div>
-    <form action="/pedido" method="POST">
-      <button type="submit" class="agr-btn">Pagar</button>
+    <form action="/pedido" method="POST" class="pagar">
+      <button type="submit" class="pgr-btn">Pagar</button>
     </form>
 </main>
 {% endblock %}

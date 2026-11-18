@@ -28,7 +28,7 @@
             <div class = "estados">
                 <form action="/estado/{{ i.id }}" method="POST">
                     <input type="hidden" name="estado" value="listo">
-                    <button type="submit">Listo</button>
+                    <button type="submit" class = "listo">Listo</button>
                 </form>
             </div>
         {%endif%}
@@ -36,10 +36,10 @@
             <div class = "estados">
                 <form action="/estado/{{ i.id }}" method="POST">
                     <input type="hidden" name="estado" value="entregado">
-                    <button type="submit">Entregado</button>
+                    <button type="submit" class = "entregado">Entregado</button>
                 </form>
             </div>
-        {%endif%}    
+        {%endif%}
     </div>
     {% endfor %}
   </div>
